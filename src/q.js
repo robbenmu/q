@@ -11,7 +11,6 @@
         anonymousModules = [],
         hasEach = !! Array.prototype.forEach;
 
-
     function isFunction(fun) {
 
         return toString.call(fun) == "[object Function]";
@@ -219,8 +218,8 @@
 
         if (moduleDef) {
             moduleDeps = moduleDef.__deps__;
-
-            if (moduleDeps) {
+            console.log(moduleDeps)
+            if (moduleDeps && moduleDeps.length) {
                 require(options, moduleDeps, function() {
                     console.log('moduleDef1', moduleDef)
                     module = me.run(moduleDef, arguments);
@@ -241,7 +240,7 @@
 
     Module.prototype.run = function(module, args) {
         var result;
-
+        console.log(module)
         if (isFunction(module)) {
 
             if (module.__cmd__) {
